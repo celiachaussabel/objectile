@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Motel Matchmaker</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/fade.js"></script>
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <style>
+    .container {
+
+      background: url('motel/bgd-motel-matchmaker.gif') 100% 100%;
+    }
+
+    .button{
+      cursor: url('all/cursor-arrow2.png'), auto;
+    }
+
+
+
+    .popup{
+      cursor: url('all/cursor-arrow2.png'), auto;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+  <script>
+    showIntroVideo('motel/animation-motel-matchmaker.mp4', 0, true, true, true, true);
+  </script>
+
+    <img src="all/button-target.png" class="button" style="top: 860px; left: 1400px; width: 100px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'motel/animation-sink-rfo.mp4',
+           name: 'sink-rfo',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+
+    <img src="all/button-target.png" class="button" style="top: 655px; left: 25px; width: 100px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'motel/animation-red-triangle-rfo.mp4', 
+           name: 'red-triangle-rfo',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+
+
+      <img src="all/button-target.png" class="button" style="top: 360px; left: 1520px; width: 100px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'motel/animation-skylight-rfo.mp4',
+           name: 'skylight-rfo',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+
+  <script>
+
+        // Background music
+        var music = new Audio('0-music/ravememories.mp3');
+        music.loop = true;
+        function startMusic() {
+            music.play();
+            document.removeEventListener('click', startMusic);
+        }
+        document.addEventListener('click', startMusic);
+
+
+  </script>
+
+    <button class="button button-back" onclick="fadeToScene('rfo.html')"></button>
+    <button class="button button-next" onclick="fadeToScene('ceremony-matchmaker.html')"></button>
+  </div>
+
+</body>
+
+</html>

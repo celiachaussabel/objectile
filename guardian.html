@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Guardian</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/fade.js"></script>
+
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <style>
+    .container {
+      background: url('guardian/bgd-guardian.png') 100% 100%;
+    }
+
+    .button{
+      cursor: url('all/cursor-lifesaver.png'), auto;
+    }
+
+    .popup{
+      cursor: url('all/cursor-lifesaver.png'), auto;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <script>
+    showIntroVideo('guardian/animation-guardian.mp4', 0, true, true, true, true);
+  </script>
+
+  <div class="container">
+
+
+    
+      <img src="guardian/button-concrete-steps.png" class="button" style="top: 402px; left: 236px; width: 208px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'guardian/animation-concrete.mp4',
+           name: 'concrete-steps',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+           onDismiss:null,
+         })">
+    
+      <img src="guardian/button-pipe.png" class="button" style="top: 775px; left: 433px; width: 42px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'guardian/animation-pipe-busted.mp4',
+           name: 'pipe',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+           onDismiss:null,
+         })">
+
+      <img src="guardian/button-duct.png" class="button" style="top: 810px; left: 653px; width: 297px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'guardian/animation-duct.mp4',
+           name: 'duct',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+           onDismiss:null,
+         })">
+
+
+      <img src="guardian/button-counter.png" class="button" style="top: 835px; left: 1072px; width: 206px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'guardian/animation-counter.mp4',
+           name: 'counter',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+           onDismiss:null,
+         })">
+
+
+    <button class="button button-back" onclick="fadeToScene('character.html')"></button>
+    <button class="button button-next" onclick="fadeToScene('trash-animation.html')"></button>
+  </div>
+
+  <script>
+
+
+        // Background music
+        var music = new Audio('0-music/eternal-rest-edit.mp3');
+        music.loop = true;
+        function startMusic() {
+            music.play();
+            window.removeEventListener('click', startMusic);
+        }
+       window.addEventListener('click', startMusic);
+
+  </script>
+</body>
+
+</html>

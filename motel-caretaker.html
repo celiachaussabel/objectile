@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Motel Caretaker</title>
+
+  <link rel="stylesheet" href="1-src/main.css">
+
+
+  <link rel="stylesheet" href="1-src/popup.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/fade.js"></script>
+
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <style>
+    .container {
+      background: url('motel/bgd-motel-caretaker-care.png') 100% 100%;
+    }
+
+    .button{
+      cursor: url('all/cursor-brush.png'), auto;
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <script>
+    showIntroVideo('motel/animation-motel-caretaker.mp4', 0, true, true, true, true);
+  </script>
+
+  <div class="container">
+
+
+
+            <img src="motel/button-damage.png" class="button" style="top: 150px; left: 1100px; width: 100px; height:auto;"
+            onclick="popup.showText({texts: texts[0], name: 'edge-damage', tintBackground: false, takeOverScreen: false, style: 'top: 150px; left: 990px; width: auto; height: 40px;'})">
+       
+            <img src="motel/button-damage.png" class="button" style="top: 650px; left: 950px; width: 100px; height: auto;"
+            onclick="popup.showText({texts: texts[1], name: 'nail-holes', tintBackground: true, takeOverScreen: false, style: 'top: 557px; left: 835px; width: 250px; height: auto;'})">
+       
+            <img src="motel/button-damage.png" class="button" style="top: 650px; left: 450px; width: 100px; height: auto;"
+            onclick="popup.showText({texts: texts[2], name: 'scratches', tintBackground: true, takeOverScreen: false, style: 'top: 557px; left: 340px; width: 100px; height: auto;'})">
+       
+            <img src="motel/button-damage-45.png" class="button" style="top: 820px; left: 200px; width: 85px; height: auto;"
+            onclick="popup.showText({texts: texts[3], name: 'water-damage', tintBackground: true, takeOverScreen: false, style: 'top: 840px; left: 170px; width: 100px; height: auto;'})">
+
+            <img src="motel/button-id.png" class="button" style="top: 219px; left: 1412px; width: 250px; height: auto;"
+              onclick="popup.showImage({
+                  images: 'motel/popup-id.png',
+                  name: 'id',
+                  fullscreen: false,
+                  tintBackground: true,
+                  takeOverScreen: true,
+                  fade: false
+                })">
+
+
+            <img src="motel/button-narrative-left.png" class="button" style="top: 310px; left: 450px; width: 100px; height: auto;"
+            onclick="popup.showVideo({
+                videos: 'motel/animation-painting.mp4',
+                name: 'painting',
+                fullscreen: true,
+                tintBackground: false,
+                takeOverScreen: true,
+                fade: true,
+                dismissOnEnd: true,
+                mute: false,
+                onDismiss:null,
+                })">
+
+            <img src="motel/button-narrative.png" class="button" style="top: 405px; left: 640px; width: 100px; height: auto;"
+            onclick="popup.showVideo({
+                videos: 'motel/animation-hello-kitty.mp4',
+                name: 'hello-kitty',
+                fullscreen: true,
+                tintBackground: false,
+                takeOverScreen: true,
+                fade: true,
+                dismissOnEnd: true,
+                mute: false,
+                onDismiss:null,
+                })">
+
+
+        <button class="button button-back" onclick="fadeToScene('motel-caretaker.html')"></button>
+        <button class="button button-next" onclick="fadeToScene('motel-caretaker-slides.html')"></button>
+
+
+  </div>
+
+  <script>
+
+        // Modal text arrays
+        const texts = [
+            ["EDGE DAMAGE"],
+            ["RANDOMLY-SHAPED SCRATCHES"],
+            ["RANDOMLY-SHAPED SCRATCHES"],
+            ["WATER DAMAGE"],
+        ];
+
+        // Background music
+        var music = new Audio('0-music/color-of-longing-edited-care.mp3');
+        music.loop = true;
+        function startMusic() {
+            music.play();
+            document.removeEventListener('click', startMusic);
+        }
+        document.addEventListener('click', startMusic);
+
+
+  </script>
+</body>
+
+</html>

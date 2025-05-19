@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Entry Clickable</title>
+    <link rel="stylesheet" href="1-src/main.css">
+    <link rel="stylesheet" href="1-src/popup.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="1-src/fade.js"></script>
+    <script src="1-src/popup.js"></script>
+    <script src="1-src/layout.js"></script>
+    <script src="1-src/video.js"></script>
+    <style>
+        .container {
+            background: url('entry/entry-bgd.png') 100% 100%;
+        }
+    </style>
+</head>
+
+<body style="margin:0;overflow:hidden">
+
+    <div class="container">
+
+        <img src="entry/foam.png" class="button" style="top: 730px; left: 00px; width: 440px; height: auto;"
+            onclick="popup.showText({texts: texts[0], name: 'foam', tintBackground: false, takeOverScreen: false, style: 'top: 730px; left: 00px; width: 440px; height: auto;'})">
+        <img src="entry/plain-marble.png" class="button" style="top: 350px; left: 1100px; width: 250px; height: auto;"
+            onclick="popup.showText({texts: texts[1], name: 'plain-marble', tintBackground: true, takeOverScreen: false, style: 'top: 350px; left: 1100px; width: 250px; height: auto;'})">
+        <img src="entry/id-chart.png" class="button" style="top: 900px; left: 1400px; width: 240px; height: auto;"
+            onclick="popup.showImage({images: 'entry/ID-paper.png', name: 'id-chart', fullscreen: false, tintBackground: true, takeOverScreen: true})">
+
+        <button class="button button-back" onclick="fadeToScene('entry-marble-animation.html')"></button>
+        <button class="button button-next" onclick="fadeToScene('entry-4.html')"></button>
+
+    </div>
+    <script>
+
+
+        // Modal text arrays
+        const texts = [
+            ["This was flimsy material, it's crumbs now.", "It didn't hold its shape, and therefore can't tell you its story, sadly.", "No narrative to carry here.", "Not an objectile."],
+            ["This was dismantled so cleanly.", "It almost looks new.", "You can reuse it.", "But you won't find a story here.", "Not an objectile."],
+            ["some of our value comes from our utility in our next life.", "but what makes us different from the other objects", "is our ability to pick up narratives", "that's the reason you keep us around"]
+        ];
+
+        // Background music
+        var music = new Audio('computer-data.mp3');
+        music.loop = true;
+        function startMusic() {
+            music.play();
+            document.removeEventListener('click', startMusic);
+        }
+        document.addEventListener('click', startMusic);
+
+    </script>
+</body>
+
+</html>

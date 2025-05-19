@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Hallway Interactive</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <script src="1-src/fade.js"></script>
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .container {
+      background: url('ceremony/ceremonyslide5.png') 100% 100%;
+      z-index: 0;
+    }
+
+    .popup {
+      cursor: url('all/cursor-saw.png'), auto !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <button class="button button-back" onclick="fadeToScene('ceremony-caretaker-interactive.html')"></button>
+    <button class="button button-next" onclick="fadeToScene('hotel-caretaker-interactive.html')"></button>
+
+  </div>
+
+
+  <script>window.addEventListener('DOMContentLoaded', function () {
+      popup.showImage({
+        images: [
+          'ceremony/ceremonyslide1.png',
+          'ceremony/ceremonyslide2.png',
+          'ceremony/ceremonyslide3.png',
+          'ceremony/ceremonyslide4.png',
+          'ceremony/ceremonyslide5.png'
+        ],
+        name: 'ceremony-caretaker-slides',
+        fullscreen: true,
+        tintBackground: true,
+        takeOverScreen: true,
+        fade: false
+      });
+    });
+
+  </script>
+</body>
+
+</html>

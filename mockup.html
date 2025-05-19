@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Mockup</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/fade.js"></script>
+  
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <style>
+    .container {
+      background: url('mockup/bgd-mockup.png') 100% 100%;
+    }
+  </style>
+</head>
+
+<body style="margin:0;overflow:hidden">
+
+  <script>
+    showIntroVideo('mockup/animation-mockup.mp4', 1000, true, true, true, true);
+  </script>
+
+  <div class="container">
+
+    <img src="mockup/button-next.png" class="button" style="top: 350px; left: 1050px; width: 100px; height: auto;"
+      onclick="popup.showImage({
+        images: 'mockup/popup-drawing.png',
+        name: 'drawing',
+        fullscreen: false,
+        tintBackground: true,
+        takeOverScreen: true,
+        fade: false
+      })">
+
+    <img src="mockup/button-model.png" class="draggable-button"
+      style="top: 350px; left: 1050px; width: 100px; height: auto;">
+
+    <img src="all/button-back.png" class="button" style="top: 950px; left: 50px; width: 100px; height: auto;"
+      onclick="fadeToScene('search-interactive.html')">
+
+
+  </div>
+
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      function makeDraggable(element) {
+        let isDragging = false;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        element.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          offsetX = e.clientX - element.offsetLeft;
+          offsetY = e.clientY - element.offsetTop;
+          element.style.zIndex = 1000;
+        });
+
+        document.addEventListener('mouseup', () => {
+          isDragging = false;
+          element.style.zIndex = '';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          element.style.left = `${e.clientX - offsetX}px`;
+          element.style.top = `${e.clientY - offsetY}px`;
+        });
+      }
+
+      document.querySelectorAll('.draggable-button').forEach(makeDraggable);
+
+    });
+
+  </script>
+</body>
+
+</html>

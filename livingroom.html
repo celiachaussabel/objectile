@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Living Room</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/fade.js"></script>
+  
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .container {
+      background: url('livingroom/bgd-livingroom.png') 100% 100%;
+    }
+
+
+    .button {
+      cursor: url('all/cursor-glasses.png'), auto !important;
+    }
+
+
+
+    .popup {
+      cursor: url('all/cursor-glasses.png'), auto !important;
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+<script>
+    showIntroVideo('livingroom/animation-livingroom.mp4', 0, true, true, true, true);
+</script>
+
+<div class="container">
+
+    <img src="livingroom/button-skylight.png" class="button" style="top: 138px; left: 810px; width: 1072px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'livingroom/animation-skylight.mp4',
+           name: 'skylight',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+
+      <img src="livingroom/button-sink.png" class="button" style="top: 370px; left: 640px; width: 147px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'livingroom/animation-sink.mp4',
+           name: 'sink',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+
+
+      <img src="livingroom/button-firebox.png" class="button" style="top: 245px; left: 353px; width: 269px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'livingroom/animation-firebox.mp4',
+           name: 'firebox',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: false,
+           mute: false,
+         })">
+
+      <img src="livingroom/button-counter.png" class="button" style="top: 185px; left: 100px; width: 240px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'livingroom/animation-counter.mp4',
+           name: 'counter',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: false,
+           mute: false,
+         })">
+
+
+    <button class="button button-back" onclick="fadeToScene('walk.html')"></button>
+    <button class="button button-next" onclick="fadeToScene('bedroom.html')"></button>
+
+  </div>
+
+
+  <script>
+
+        // Background music
+        var music = new Audio('0-music/193193sleep.mp3');
+        music.loop = true;
+        function startMusic() {
+            music.play();
+            window.removeEventListener('click', startMusic);
+        }
+       window.addEventListener('click', startMusic);
+
+
+  </script>
+
+
+</body>
+
+</html>

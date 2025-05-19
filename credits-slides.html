@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Credits</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <script src="1-src/fade.js"></script>
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .container {
+      background: url('credits/credits-slide8.gif') 100% 100%;
+      z-index: 0;
+    }
+
+    .popup {
+      cursor: url('all/cursor-hand.png'), auto !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <button class="button button-next" onclick="fadeToScene('index.html')"></button>
+
+  </div>
+
+
+  <script>window.addEventListener('DOMContentLoaded', function () {
+      popup.showImage({
+        images: [
+          'credits/credits-slide1.gif',
+          'credits/credits-slide2.gif',
+          'credits/credits-slide3.gif',
+          'credits/credits-slide4.gif',
+          'credits/credits-slide5.gif',
+          'credits/credits-slide6.gif',
+          'credits/credits-slide7.gif',
+
+        ],
+        name: 'credit-slides',
+        fullscreen: true,
+        tintBackground: true,
+        takeOverScreen: true,
+        fade: false
+      });
+    });
+
+  </script>
+</body>
+
+</html>

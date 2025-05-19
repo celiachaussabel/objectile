@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Guide</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <script src="1-src/fade.js"></script>
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .container {
+      background: url('guide/slide-guide13.png') 100% 100%;
+      z-index: 0;
+    }
+
+    .popup {
+      cursor: url('all/cursor-hand.png'), auto !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <button class="button button-next" onclick="fadeToScene('index.html')"></button>
+
+  </div>
+
+
+  <script>window.addEventListener('DOMContentLoaded', function () {
+      popup.showImage({
+        images: [
+          'guide/slide-guide1.png',
+          'guide/slide-guide2.png',
+          'guide/slide-guide3.png',
+          'guide/slide-guide4.png',
+          'guide/slide-guide5.png',
+          'guide/slide-guide6.png',
+          'guide/slide-guide7.png',
+          'guide/slide-guide8.png',
+          'guide/slide-guide9.png',
+          'guide/slide-guide10.png',
+          'guide/slide-guide11.png',
+          'guide/slide-guide12.png',
+          'guide/slide-guide13.png',
+        ],
+        name: 'guide-slides',
+        fullscreen: true,
+        tintBackground: true,
+        takeOverScreen: true,
+        fade: false
+      });
+    });
+
+  </script>
+</body>
+
+</html>

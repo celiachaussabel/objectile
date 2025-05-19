@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Entry 2</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/fade.js"></script>
+  <script src="1-src/layout.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .container {
+      background: url('entry-2/bgd-entry-2.png') 100% 100%;
+    }
+  </style>
+</head>
+
+<body style="margin:0;overflow:hidden">
+
+  <div class="container">
+
+    <img src="entry-2/button-0.png" class="button" style="top: 600px; left: 200px; width: 80px; height: auto;" onclick="popup.showText({
+  texts: ['A PIECE OF DRYWALL FROM A MINE IN MICHIGAN'],
+  name: 'popup-drywall',
+  tintBackground: false,
+  takeOverScreen: true,
+  style: 'top: 600px; left: 300px; width: 80px; height: auto;'
+})">
+
+    <img src="entry-2/button-1.png" class="button" style="top: 500px; left: 830px; width: 300px; height: auto;" onclick="popup.showText({
+  texts: ['A CERAMIC TILE FROM A CLAY PIT, THAT WAS THEN FIRED AT HIGH TEMP IN A FACTORY'],
+  name: 'popup-tile',
+  tintBackground: false,
+  takeOverScreen: true,
+  style: 'top: 500px; left: 830px; width: 500px; height: auto;'
+})">
+
+    <img src="entry-2/button-2.png" class="button" style="top: 730px; left: 1430px; width: 300px; height: auto;"
+      onclick="popup.showText({
+  texts: ['A PIECE OF MARBLE, SHIPPED BY BOAT FROM ITALY'],
+  name: 'popup-marble',
+  tintBackground: false,
+  takeOverScreen: true,
+  style: 'top: 730px; left: 1430px; width: 300px; height: auto;'
+})">
+
+    <button class="button button-back" onclick="fadeToScene('entry-1.html')"></button>
+    <button class="button button-next" onclick="fadeToScene('entry-3.html')"></button>
+
+  </div>
+
+
+
+  <script>
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const popupImage = document.getElementById('popupImage');
+      popupImage.addEventListener('click', () => {
+
+      });
+    });
+
+    // Background music
+    var music = new Audio('computer-data.mp3');
+    music.loop = true;
+    function startMusic() {
+      music.play();
+      document.removeEventListener('click', startMusic);
+    }
+    document.addEventListener('click', startMusic);
+
+  </script>
+</body>
+
+</html>

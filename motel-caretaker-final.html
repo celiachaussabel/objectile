@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Motel Caretaker 3</title>
+    <link rel="stylesheet" href="1-src/main.css">
+    <link rel="stylesheet" href="1-src/popup.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="1-src/fade.js"></script>
+    <script src="1-src/popup.js"></script>
+    <script src="1-src/layout.js"></script>
+    <script src="1-src/video.js"></script>
+    <style>
+        .container {
+            background: url('motel/bgd-motel-caretaker.png') 100% 100%;
+        }
+
+        .button{
+            cursor: url('all/cursor-pencil.png'), auto;
+        }
+
+    </style>
+</head>
+
+<body style="margin:0;overflow:hidden">
+
+    <div class="container">
+
+        <button class="button button-back" onclick="fadeToScene('motel-caretaker-slides.html')"></button>
+        <button class="button button-next" onclick="fadeToScene('character.html')"></button>
+
+    <img src="all/button-show-catalog.png" class="button" style="top: 100px; left: 1490px; width: 380px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'motel/animation-motel-info.mp4',
+           name: 'motel-show-catalog',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+           onDismiss:null,
+         })">
+
+    </div>
+    <script>
+
+
+        // Background music
+        var music = new Audio('0-music/color-of-longing-edited-care.mp3');
+        music.loop = true;
+        function startMusic() {
+            music.play();
+            document.removeEventListener('click', startMusic);
+        }
+        document.addEventListener('click', startMusic);
+
+    </script>
+</body>
+
+</html>

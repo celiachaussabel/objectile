@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Ceremony Caretaker</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/fade.js"></script>
+
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <style>
+    .container {
+      background: url('ceremony/bgd-ceremony.gif') 100% 100%;
+    }
+
+    .button{
+      cursor: url('all/cursor-saw.png'), auto;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <script>
+    showIntroVideo('ceremony/animation-ceremony-caretaker.mp4', 0, true, true, true, true);
+  </script>
+
+  <div class="container">
+
+
+            <img src="all/button-perform-ceremony.png" class="button" style="top: 520px; left: 650px; width: 690px; height: auto;"
+            onclick="popup.showVideo({
+                videos: 'ceremony/animation-dislodging.mp4',
+                name: 'start dislodging',
+                fullscreen: true,
+                tintBackground: false,
+                takeOverScreen: true,
+                fade: true,
+                dismissOnEnd: true,
+                mute: false,
+                onDismiss:null,
+                })">
+
+        <button class="button button-back" onclick="fadeToScene('character.html')"></button>
+        <button class="button button-next" onclick="fadeToScene('motel-caretaker.html')"></button>
+
+
+  </div>
+
+  <script>
+
+
+  </script>
+</body>
+
+</html>

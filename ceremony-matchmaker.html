@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Ceremony Matchmaker</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/fade.js"></script>
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .container {
+      background: url('ceremony/bgd-ceremony-matchmaker.gif') 100% 100%;
+    }
+
+    .button{
+      cursor: url('all/cursor-arrow2.png'), auto;
+    }
+
+    .popup{
+      cursor: url('all/cursor-arrow2.png'), auto;
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+
+  <script>
+    showIntroVideo('ceremony/animation-ceremony-matchmaker.mp4', 0, true, true, true, true);
+  </script>
+
+
+  <div class="container">
+    <button class="button button-back" onclick="fadeToScene('motel-matchmaker.html')"></button>
+    <button class="button button-next" onclick="fadeToScene('walk-matchmaker.html')"></button>
+
+    <img src="all/button-target.png" class="button" style="top: 355px; left: 1340px; width: 100px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'ceremony/animation-firebox-rfo.mp4',
+           name: 'firebox-rfo',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+
+    <img src="all/button-target.png" class="button" style="top: 730px; left: 478px; width: 100px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'ceremony/animation-counter-rfo.mp4',
+           name: 'counter-rfo',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+
+
+
+
+  </div>
+
+  <script>
+
+
+        // Background music
+        var music = new Audio('0-music/ghost-bridges-edit2.mp3');
+        music.loop = true;
+        function startMusic() {
+            music.play();
+            document.removeEventListener('click', startMusic);
+        }
+        document.addEventListener('click', startMusic);
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Office</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/fade.js"></script>
+  <script src="1-src/video.js"></script>
+  <script src="1-src/layout.js"></script>
+  <style>
+    .container {
+      background: url('office/bgd-office.png') 100% 100%;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <script>
+    showIntroVideo('office/animation-office.mp4', 0, true, true, true, true);
+  </script>
+
+  <div class="container">
+
+    <img src="office/button-poster.png" class="button" style="top: 77px; left: 1072px; width: 165px; height: auto;"
+      onclick="popup.showImage({
+      images: 'office/popup-poster.png',
+      name: 'poster',
+      fullscreen: false,
+      tintBackground: true,
+      takeOverScreen: true,
+      fade: false
+      })">
+
+    <img src="office/button-rfo-floor.png" class="button" style="top: 175px; left: 400px; width: 145px; height: auto;"
+      onclick="popup.showImage({
+         images: 'office/popup-rfo-floor.png',
+         name: 'rfo-floor',
+         fullscreen: false,
+         tintBackground: true,
+         takeOverScreen: true,
+         fade: false
+       })">
+
+    <img src="office/button-rfo-wall.png" class="button" style="top: 175px; left: 0px; width: 85px; height: auto;"
+      onclick="popup.showImage({
+        images: 'office/popup-rfo-wall.png',
+        name: 'rfo-wall',
+        fullscreen: false,
+        tintBackground: true,
+        takeOverScreen: true,
+        fade: false
+      })">
+
+    <img src="office/button-rfo-facade.png" class="button" style="top: 188px; left: 252px; width: 120px; height: auto;"
+      onclick="popup.showImage({
+        images: 'office/popup-rfo-facade.png',
+        name: 'rfo-facade',
+        fullscreen: false,
+        tintBackground: true,
+        takeOverScreen: true,
+        fade: false
+      })">
+
+    <img src="office/button-rfo-deck.png" class="button" style="top: 179px; left: 85px; width: 145px; height: auto;"
+      onclick="popup.showImage({
+        images: 'office/popup-rfo-deckf.png',
+        name: 'rfo-roof',
+        fullscreen: false,
+        tintBackground: true,
+        takeOverScreen: true,
+        fade: false
+      })">
+
+    <img src="office/button-cctv.png" class="button" style="top: 621px; left: 660px; width: 180px; height: auto;"
+      onclick="popup.showImage({
+        images: 'office/popup-cctv.png',
+        name: 'cctv',
+        fullscreen: false,
+        tintBackground: true,
+        takeOverScreen: true,
+        fade: false
+    })">
+
+    <img src="office/button-ord.png" class="button" style="top: 621px; left: 342px; width: 180px; height: auto;"
+      onclick="popup.showImage({
+          images: 'office/popup-ord.png',
+          name: 'cctv2',
+          fullscreen: false,
+          tintBackground: true,
+          takeOverScreen: true,
+          fade: false
+        })">
+
+        
+
+    <button class="button button-back" onclick="fadeToScene('matchmaker.html')"></button>
+    <button class="button button-next" onclick="fadeToScene('rfo.html')"></button>
+
+  </div>
+
+  <script>
+
+        // Background music
+        var music = new Audio('0-music/compdata-r0-edit.mp3');
+        music.loop = true;
+        function startMusic() {
+            music.play();
+            document.removeEventListener('click', startMusic);
+        }
+        document.addEventListener('click', startMusic);
+
+
+  </script>
+</body>
+
+</html>

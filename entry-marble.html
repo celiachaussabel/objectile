@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Entry Interactive</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <script src="1-src/fade.js"></script>
+  <script src="1-src/popup.js"></script>
+  
+  <script src="1-src/layout.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .container {
+      background: url('entry/entry-bgd.png') 100% 100%;
+    }
+  </style>
+</head>
+
+<body style="margin:0;overflow:hidden">
+
+  <div class="container">
+
+    <img src="entry/button-marble.png" class="button" style="top: 780px; left: 800px; width: 440px; height: auto;"
+      onclick="fadeToScene('entry-marble-animation.html')">
+
+  </div>
+
+
+  <!-- For fixed size -->
+  <script>
+
+    // Background music
+    var music = new Audio('computer-data.mp3');
+    music.loop = true;
+    function startMusic() {
+      music.play();
+      document.removeEventListener('click', startMusic);
+    }
+    document.addEventListener('click', startMusic);
+
+  </script>
+  <script src="1-src/fade.js"></script>
+</body>
+
+</html>

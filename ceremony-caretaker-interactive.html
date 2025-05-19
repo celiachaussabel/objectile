@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Ceremony Caretaker Interactive</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <script src="1-src/fade.js"></script>
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .container {
+      background: url('ceremony/bgd-ceremony.png') 100% 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+    showIntroVideo('ceremony/animation-ceremony-caretaker1.mp4', 1000, true, true, true, true);
+  </script>
+
+  <div class="container">
+    <button class="button button-back" onclick="fadeToScene('caretaker.html')"></button>
+    <button class="button button-next" onclick="fadeToScene('ceremony-caretaker-slides2.html')"></button>
+  </div>
+</body>
+
+</html>

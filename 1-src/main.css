@@ -1,0 +1,142 @@
+body,
+html {
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+}
+
+.intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-overlay.fade-out {
+  animation: fadeOut 2s ease forwards;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.intro-overlay video {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.button,
+button.button {
+  position: absolute;
+  cursor: pointer;
+  padding: 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+  animation: glowPulse 2s infinite ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.button-next {
+  top: 950px;
+  left: 1750px;
+  width: 100px;
+  height: 100px;
+  background-image: url('../all/button-next.png');
+}
+
+.button-back {
+  top: 950px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background-image: url('../all/button-back.png');
+}
+
+@font-face {
+  font-family: "HomeVideo";
+  src: url("../fonts/HomeVideo-BLG6G.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SourceCodeVariable-Italic";
+  src: url("../fonts/SourceCodeVariable-Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@keyframes glowPulse {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 20px rgb(255, 255, 255));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+  }
+}
+
+.button-2 {
+  position: absolute;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+  padding: 0px;
+}
+
+
+
+
+
+.draggable-button {
+  position: absolute;
+  cursor: grab;
+  padding: 0px;
+  border: none;
+  background: none;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+}

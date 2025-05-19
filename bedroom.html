@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bedroom</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="1-src/fade.js"></script>
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <style>
+    .container {
+      background: url('bedroom/bgd-bedroom.png') 100% 100%;
+    }
+
+    .button {
+      cursor: url('all/cursor-glasses.png'), auto !important;
+    }
+
+        .popup {
+      cursor: url('all/cursor-glasses.png'), auto !important;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <script>
+    showIntroVideo('bedroom/animation-bedroom.mp4', 0, true, true, true, true);
+  </script>
+
+  <div class="container">
+    <!-- 11 Placeholder Buttons -->
+
+
+
+    <img src="bedroom/button-mash.png" class="button" style="top: 585px; left: 350px; width: 160px; height: auto;"
+      onclick="popup.showImage({
+           images: 'bedroom/popup-mash.png',
+           name: 'mash',
+           fullscreen: false,
+           tintBackground: true,
+           takeOverScreen: true,
+           fade: false,
+         })">
+
+    <img src="bedroom/button-foot.png" class="button" style="top: 186px; left: 380px; width: 250px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'bedroom/animation-foot-key.mp4',
+           name: 'foot',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+   
+      <img src="bedroom/button-pipe.png" class="button" style="top: 668px; left: 759px; width: 90px; height: auto;"
+        onclick="popup.showVideo({
+           videos: 'bedroom/animation-pipe-mail.mp4',
+           name: 'pipe',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+
+   
+    <img src="bedroom/button-gym-block.png" class="button" style="top: 576px; left: 1054px; width: 333px; height: auto;"
+        onclick="popup.showVideo({
+           videos: 'bedroom/animation-gym-block.mp4',
+           name: 'gym-block',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+    
+    <img src="bedroom/button-stringer.png" class="button" style="top: 238px; left: 1112px; width: 250px; height: auto;"
+        onclick="popup.showVideo({
+           videos: 'bedroom/animation-stringer.mp4',
+           name: 'stringer',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+
+    <img src="bedroom/button-headlight.png" class="button" style="top: 344px; left: 812px; width: 83px; height: auto;"
+        onclick="popup.showVideo({
+           videos: 'bedroom/animation-headlight.mp4',
+           name: 'headlight',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+
+    
+  <script>
+
+        // Background music
+        var music = new Audio('0-music/cococlairclair-ume-edit.mp3');
+        music.loop = true;
+        function startMusic() {
+            music.play();
+            window.removeEventListener('click', startMusic);
+        }
+       window.addEventListener('click', startMusic);
+
+
+  </script>
+  
+    <button class="button button-back" onclick="fadeToScene('livingroom.html')"></button>
+    <button class="button button-next" onclick="fadeToScene('character.html')"></button>
+  </div>
+
+
+</body>
+
+</html>

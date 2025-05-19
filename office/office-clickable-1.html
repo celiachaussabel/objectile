@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="1-src/../popup.css">
+  <script src="1-src/../fade.js"></script>
+  <script src="1-src/../popup.js"></script>
+  <script src="1-src/../layout.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .container {
+      position: absolute;
+      width: 1920px;
+      height: 1080px;
+      left: 50%;
+      top: 50%;
+      transform-origin: center;
+      background: url('office/background1920x1080.png') 100% 100%;
+    }
+
+    .button {
+      position: absolute;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+
+    .clickable:hover {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Modal for text popups */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 141, 141, 0.493);
+      color: rgb(255, 49, 49);
+      z-index: 1100;
+      cursor: pointer;
+      /* this line makes it show the pointer */
+    }
+
+    .modal-content {
+      position: absolute;
+      top: 500px;
+      left: 1000px;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 80%;
+      max-width: 400px;
+      font-size: 40px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    }
+
+    .modal.alt-style {
+      background-color: rgba(255, 255, 255, 0);
+      /* Dark background for modal(2) */
+    }
+
+    .modal.alt-style .modal-content {
+      font-family: 'Atkinson Hyperlegible Mono', monospace;
+      /* Apply the Google Font here */
+      font-size: 60px;
+      color: rgb(0, 0, 0);
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .popup {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+    }
+
+    .popup.show {
+      display: block;
+    }
+
+    .popup img {
+      max-width: 1000px;
+      height: auto;
+      cursor: pointer;
+      /* Indicates image is clickable */
+      border: none;
+      /* Make sure there's no border */
+    }
+  </style>
+</head>
+
+<body style="margin:0;overflow:hidden">
+
+  <div class="container">
+
+
+    <img src="office/button-rfo3.png" class="button" style="top: 160px; left: 220px; width: 160px; height: auto;"
+      onclick="showPopup('imagePopupRFO')">
+
+
+    <img src="office/button-paper.png" class="button" style="top: 250px; left: 1200px; width: 80px; height: auto;"
+      onclick="showModal(1)">
+
+    <img src="office/button-model.png" class="button" style="top: 530px; left: 1230px; width: 300px; height: auto;"
+      onclick="showModal(2)">
+
+    <img src="office/button-pushstick.png" class="button" style="top: 300px; left: 1350px; width: 120px; height: auto;"
+      onclick="showPopup('imagePopupPushstick')">
+
+    <img src="office/button-stair.png" class="button" style="top: 38px; left: 1558px; width: 296px; height: auto;"
+      onclick="showPopup('imagePopupStair')">
+
+  </div>
+
+  <!-- Still image popup -->
+  <div id="imagePopupRFO" class="popup" style="z-index: 1000;">
+    <img src="office/popup-image3.jpg" id="popupImage" style="width: 600px; height: auto;">
+  </div>
+
+  <!-- Modal for text -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <h2 id="modal-title"></h2>
+      <p id="modal-text">This is the beginning of your journey.</p>
+    </div>
+  </div>
+
+  <script>
+
+
+    // Modal logic
+    const modalTexts = [
+      ["DESIGN PROBLEMS COME IN THE FORM OF AN R.F.O.", "REQUEST FOR OBJECTILES", "IT CALLS ON US THAT FIT THESE DESCRIPTORS",],
+      ["LANGUAGE IS IMPORTANT TO OBJECTILES", "OPEN-ENDED DESCRIPTORS KEEP OUR FUTURE POSSIBILITIES OPEN", "TOO SPECIFIC OF AN IDEA KILLS OUR POTENTIAL FUTURES", "But you won't find a story here.", "Not an objectile."],
+      ["OBJECTILES BEING LOGGED INTO THE DATABASE IN THE HOTEL NEXT", "but what makes us different from the other objects", "is our ability to pick up narratives", "that's the reason you keep us around"]
+    ];
+
+    let currentStep = 0;
+    let currentTextArray = [];
+
+    const modalPositions = [
+      { top: '800px', left: '200px' }, // position for modal(0)
+      { top: '500px', left: '1260px' },   // position for modal(1)
+      { top: '600px', left: '960px' }
+    ];
+
+    function showModal(buttonIndex) {
+      currentStep = 0;
+      currentTextArray = modalTexts[buttonIndex];
+      updateModal();
+
+      const modal = document.getElementById('myModal');
+      const modalContent = modal.querySelector('.modal-content');
+
+      // Set position
+      const pos = modalPositions[buttonIndex];
+      modalContent.style.top = pos.top;
+      modalContent.style.left = pos.left;
+
+      // Apply special class for modal(2)
+      if (buttonIndex === 2) {
+        modal.classList.add('alt-style');
+      } else {
+        modal.classList.remove('alt-style');
+      }
+
+      modal.style.display = 'block';
+    }
+
+    function nextModal() {
+      currentStep++;
+      if (currentStep < currentTextArray.length) {
+        updateModal();
+      } else {
+        document.getElementById('myModal').style.display = 'none';
+      }
+    }
+
+    function updateModal() {
+      document.getElementById('modal-text').innerText = currentTextArray[currentStep];
+    }
+
+    // Background music
+    var music = new Audio('computer-data.mp3');
+    music.loop = true;
+    function startMusic() {
+      music.play();
+      document.removeEventListener('click', startMusic);
+    }
+    document.addEventListener('click', startMusic);
+
+  </script>
+</body>
+
+</html>

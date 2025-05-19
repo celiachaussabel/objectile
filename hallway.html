@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Hallway</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="1-src/fade.js"></script>
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <style>
+    .container {
+      background: url('hallway/bgd-hallway.png') 100% 100%;
+    }
+
+    .button {
+      cursor: url('all/cursor-glasses.png'), auto !important;
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+<script>
+    showIntroVideo('hallway/animation-hallway.mp4', 0, true, true, true, true);
+</script>
+
+  <div class="container">
+
+    <img src="hallway/button-pushstick.png" class="button" style="top: 770px; left: 330px; width: 190px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'hallway/animation-pushstick.mp4',
+           name: 'pushstick',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+      
+
+    <img src="hallway/button-stringer.png" class="button" style="top: 795px; left: 813px; width: 445px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'hallway/animation-stringer.mp4',
+           name: 'stringer',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+      
+
+    <img src="hallway/button-foot-hallway.png" class="button" style="top: 760px; left: 1573px; width: 202px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'hallway/animation-foot-hallway.mp4',
+           name: 'foot-hallway',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+      
+
+    <button class="button button-back" onclick="fadeToScene('character.html')"></button>
+    <button class="button button-next" onclick="fadeToScene('livingroom.html')"></button>
+
+  </div>
+
+
+  <script>
+
+        // Background music
+        var music = new Audio('0-music/193193sleep.mp3');
+        music.loop = true;
+        function startMusic() {
+            music.play();
+            window.removeEventListener('click', startMusic);
+        }
+       window.addEventListener('click', startMusic);
+
+
+  </script>
+
+
+
+</body>
+
+</html>

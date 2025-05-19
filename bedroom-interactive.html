@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bedroom Interactive</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="1-src/fade.js"></script>
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <style>
+    .container {
+      background: url('bedroom/bgd-bedroom.png') 100% 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+    showIntroVideo('bedroom/animation-bedroom.mp4', 1000, true, true, true, true);
+  </script>
+
+  <div class="container">
+    <!-- 11 Placeholder Buttons -->
+    <img src="all/button-placeholder.png" class="button" style="top: 400px; left: 450px; width: 160px; height: auto;"
+      onclick="popup.showText({texts: ['Placeholder text for Button 1'], name: 'button1', tintBackground: false, takeOverScreen: false, style: 'font-family: sans-serif; font-size: 24px; top: 400px; left: 450px; width: 160px; height: auto;'})">
+    <img src="all/button-placeholder.png" class="button" style="top: 700px; left: 800px; width: 160px; height: auto;"
+      onclick="popup.showText({texts: ['Placeholder text for Button 2'], name: 'button2', tintBackground: false, takeOverScreen: false, style: 'top: 700px; left: 800px; width: 160px; height: auto;'})">
+    <img src="all/button-placeholder.png" class="button" style="top: 370px; left: 850px; width: 160px; height: auto;"
+      onclick="popup.showText({texts: ['Placeholder text for Button 3'], name: 'button3', tintBackground: false, takeOverScreen: false, style: 'top: 370px; left: 850px; width: 160px; height: auto;'})">
+    <img src="all/button-placeholder.png" class="button" style="top: 400px; left: 940px; width: 160px; height: auto;"
+      onclick="popup.showText({texts: ['Placeholder text for Button 4'], name: 'button4', tintBackground: false, takeOverScreen: false, style: 'top: 400px; left: 940px; width: 160px; height: auto;'})">
+    <img src="all/button-placeholder.png" class="button" style="top: 340px; left: 1060px; width: 160px; height: auto;"
+      onclick="popup.showText({texts: ['Placeholder text for Button 5'], name: 'button5', tintBackground: false, takeOverScreen: false, style: 'top: 340px; left: 1060px; width: 160px; height: auto;'})">
+    <img src="all/button-placeholder.png" class="button" style="top: 700px; left: 1200px; width: 160px; height: auto;"
+      onclick="popup.showText({texts: ['Placeholder text for Button 6'], name: 'button6', tintBackground: false, takeOverScreen: false, style: 'top: 700px; left: 1200px; width: 160px; height: auto;'})">
+    <img src="all/button-placeholder.png" class="button" style="top: 350px; left: 1240px; width: 160px; height: auto;"
+      onclick="popup.showText({texts: ['Placeholder text for Button 7'], name: 'button7', tintBackground: false, takeOverScreen: false, style: 'top: 350px; left: 1240px; width: 160px; height: auto;'})">
+    <img src="all/button-placeholder.png" class="button" style="top: 400px; left: 1460px; width: 160px; height: auto;"
+      onclick="popup.showText({texts: ['Placeholder text for Button 8'], name: 'button8', tintBackground: false, takeOverScreen: false, style: 'top: 400px; left: 1460px; width: 160px; height: auto;'})">
+    <img src="all/button-placeholder.png" class="button" style="top: 320px; left: 1550px; width: 160px; height: auto;"
+      onclick="popup.showText({texts: ['Placeholder text for Button 9'], name: 'button9', tintBackground: false, takeOverScreen: false, style: 'top: 320px; left: 1550px; width: 160px; height: auto;'})">
+    <img src="all/button-placeholder.png" class="button" style="top: 250px; left: 1600px; width: 160px; height: auto;"
+      onclick="popup.showText({texts: ['Placeholder text for Button 10'], name: 'button10', tintBackground: false, takeOverScreen: false, style: 'top: 250px; left: 1600px; width: 160px; height: auto;'})">
+
+
+    <button class="button button-back" onclick="fadeToScene('walk-interactive.html')"></button>
+    <button class="button button-next" onclick="fadeToScene('neighbor-interactive.html')"></button>
+  </div>
+
+
+</body>
+
+</html>
