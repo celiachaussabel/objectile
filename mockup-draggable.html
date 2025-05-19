@@ -15,6 +15,13 @@
     .container {
       background: url('mockup/bgd-mockup.png') 100% 100%;
     }
+
+    
+    .draggable-button{
+      cursor: url('all/cursor-hand.png'), auto;
+    }
+
+
   </style>
 </head>
 
@@ -25,13 +32,36 @@
     <button class="button button-back" onclick="fadeToScene('walk-designer-interactive.html')"></button>
 
     <img src="mockup/button-skylight.png" class="draggable-button"
-      style="top: 750px; left: 850px; width: 600px; height: auto;">
+      style="top: 520px; left: 835px; width: 600px; height: auto;">
 
     <img src="mockup/button-sink.png" class="draggable-button"
-      style="top: 900px; left: 150px; width: 150px; height: auto;">
+      style="top: 740px; left: 1530px; width: 150px; height: auto;">
 
     <img src="mockup/button-firebox.png" class="draggable-button"
-      style="top: 800px; left: 250px; width: 200px; height: auto;">
+      style="top: 620px; left: 265px; width: 170px; height: auto;">
+
+      <img src="mockup/button-metal-flat.png" class="draggable-button"
+      style="top: 820px; left: 610px; width: 150px; height: auto;">
+
+    <img src="mockup/button-drawing.png" class="button" style="top: 960px; left: 900px; width: 160px; height: auto;"
+      onclick="popup.showImage({
+           images: 'mockup/popup-drawing.png',
+           name: 'drawing',
+           fullscreen: false,
+           tintBackground: true,
+           takeOverScreen: true,
+           fade: false
+         })">
+
+    <img src="mockup/button-rfo.png" class="button" style="top: 965px; left: 1260px; width: 160px; height: auto;"
+      onclick="popup.showImage({
+           images: 'mockup/popup-rfo.png',
+           name: 'rfo',
+           fullscreen: false,
+           tintBackground: true,
+           takeOverScreen: true,
+           fade: false
+         })">
 
   </div>
 
@@ -98,6 +128,18 @@
         changeBackground();
       }
     });
+
+        // Background music
+        var music = new Audio('0-music/ghost-bridges-edit1.mp3');
+        music.loop = true;
+        function startMusic() {
+            music.play();
+            document.removeEventListener('click', startMusic);
+        }
+        document.addEventListener('click', startMusic);
+
+
+
   </script>
   <script src="1-src/fade.js"></script>
 </body>

@@ -20,16 +20,33 @@
 
     <!-- Video with Embedded Audio -->
     <video autoplay loop muted>
-        <source src="home/animation-home.mp4" type="video/mp4">
+        <source src="index/animation-index.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
     <div class="container">
-        <img src="home/button-start.png" class="button" style="top: 900px; left: 900px; width: 200px; height: auto;"
+        <img src="all/button-guide.png" class="button" style="top: 910px; left: 80px; width: auto; height: 40px;"
+            onclick="fadeToScene('guide.html')">
+
+        <img src="all/button-enter.png" class="button" style="top: 900px; left: 830px; width: auto; height: 80px;"
             onclick="fadeToScene('entry-1.html')">
 
-    </div>
+        <img src="all/button-credits.png" class="button" style="top: 910px; left: 1680px; width: auto; height: 40px;"
+            onclick="fadeToScene('credits-slides.html')">
 
+    </div>
+    <script>
+
+        // Background music
+        var music = new Audio('0-music/lanuitbleue-edit.mp3');
+        music.loop = true;
+        function startMusic() {
+            music.play();
+            document.removeEventListener('click', startMusic);
+        }
+        document.addEventListener('click', startMusic);
+
+    </script>
 
 </body>
 

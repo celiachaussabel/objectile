@@ -106,6 +106,8 @@ function hide() {
  * @param {string=} opts.popupName - Optional unique name for this popup. Prevents duplicate popups with the same name.
  */
 function showTextPopup({ tintBackground = true, takeOverScreen = true, style = null, popupName = null, fade = false, onDismiss = null } = {}) {
+  let precisionPlaced = false;
+
   if (takeOverScreen) {
     // Old modal behavior (single popup, overlay)
     if (!popupEl || !currentTextArray) return;
@@ -140,6 +142,7 @@ function showTextPopup({ tintBackground = true, takeOverScreen = true, style = n
       popupEl.className = 'popup show precision-placed';
       popupEl.classList.remove('centered');
       if (containerStyle) {
+        precisionPlaced = true;
         popupEl.setAttribute('style', containerStyle);
       }
     } else {
@@ -229,6 +232,7 @@ function showTextPopup({ tintBackground = true, takeOverScreen = true, style = n
     const popupDiv = document.createElement('div');
     popupDiv.className = (style ? 'popup show precision-placed' : 'popup show centered');
     if (style && typeof style === 'string') {
+      precisionPlaced = true;
       popupDiv.setAttribute('style', style);
     }
     popupDiv.setAttribute('data-popup-id', popupId);
@@ -240,7 +244,11 @@ function showTextPopup({ tintBackground = true, takeOverScreen = true, style = n
     container.textContent = arr[0];
     container.setAttribute('tabindex', '0');
     popupDiv.appendChild(container);
-    document.body.appendChild(popupDiv);
+    if (precisionPlaced) {
+      document.querySelector('.container').appendChild(popupDiv);
+    } else {
+      document.body.appendChild(popupDiv);
+    }
     popups[popupId] = popupDiv;
     console.log('[popup] created non-modal popup', popupId, popupDiv, 'content:', container.textContent);
     // Step-through logic
@@ -302,7 +310,7 @@ function dismissPopup(id) {
  * @param {function=} opts.onDismiss - Optional callback function to call when the popup is dismissed.
  * @param {boolean=} opts.dismissOnEnd - Whether to dismiss the popup when video ends (if false, loops until clicked)
  */
-function showVideoPopup(videoPath, { tintBackground = true, takeOverScreen = true, fullscreen = false, style = null, popupName = null, fade = false, onDismiss = null, dismissOnEnd = false, muted = false, skippable = false } = {}) {
+function showVideoPopup(videoPath, { tintBackground = true, takeOverScreen = true, fullscreen = false, style = null, popupName = null, fade = false, onDismiss = null, dismissOnEnd = false } = {}) {
   if (takeOverScreen) {
     if (!popupEl) return;
     popupEl.innerHTML = '';
@@ -334,9 +342,9 @@ function showVideoPopup(videoPath, { tintBackground = true, takeOverScreen = tru
       src: currentVideoSrc,
       fadeDuration: fade ? 3000 : 0,
       autoplay: true,
-      muted: muted,
+      muted: false,
       playsinline: true,
-      skippable: skippable,
+      skippable: true,
       onFadeOut: (videoEl, fadeDuration) => {
         popupEl.style.transition = fadeDuration ? `opacity ${fadeDuration}ms` : '';
         popupEl.style.opacity = '0';
@@ -431,7 +439,6 @@ function showVideoPopup(videoPath, { tintBackground = true, takeOverScreen = tru
       if (takeOverScreen) {
         popupEl.onclick = function (e) {
           e.stopPropagation();
-          if (!skippable) return;
           if (fade) {
             popupEl.style.transition = 'opacity 3s';
             popupEl.style.opacity = '0';
@@ -489,9 +496,9 @@ function showVideoPopup(videoPath, { tintBackground = true, takeOverScreen = tru
       src: currentVideoSrc,
       fadeDuration: fade ? 3000 : 0,
       autoplay: true,
-      muted: muted,
+      muted: false,
       playsinline: true,
-      skippable: skippable,
+      skippable: true,
       onFadeOut: (videoEl, fadeDuration) => {
         popupEl.style.transition = fadeDuration ? `opacity ${fadeDuration}ms` : '';
         popupEl.style.opacity = '0';
@@ -541,7 +548,6 @@ function showVideoPopup(videoPath, { tintBackground = true, takeOverScreen = tru
       if (takeOverScreen) {
         popupEl.onclick = function (e) {
           e.stopPropagation();
-          if (!skippable) return;
           if (fade) {
             popupEl.style.transition = 'opacity 3s';
             popupEl.style.opacity = '0';
@@ -582,9 +588,9 @@ function showVideoPopup(videoPath, { tintBackground = true, takeOverScreen = tru
       src: arr[0],
       fadeDuration: fade ? 3000 : 0,
       autoplay: true,
-      muted: true,
+      muted: false,
       playsinline: true,
-      skippable: skippable,
+      skippable: true,
       loop: !dismissOnEnd, // Loop only if dismissOnEnd is false
       onFadeOut: (videoEl, fadeDuration) => {
         popupDiv.style.transition = fadeDuration ? `opacity ${fadeDuration}ms` : '';
@@ -995,7 +1001,7 @@ function text(arr) {
  * @param {string} params.style - Optional inline style string for popup container
  * @param {boolean} params.dismissOnEnd - Whether to dismiss the popup when video ends (if false, loops until clicked)
  */
-function showVideo({ videos, name = null, fullscreen = false, tintBackground = true, takeOverScreen = true, style = null, fade = false, onDismiss = null, dismissOnEnd = false, muted = false, skippable = false }) {
+function showVideo({ videos, name = null, fullscreen = false, tintBackground = true, takeOverScreen = true, style = null, fade = false, onDismiss = null, dismissOnEnd = false }) {
   createPopupElements();
   popupMode = 'video';
   // Handle both single video path and array of video paths
@@ -1016,9 +1022,7 @@ function showVideo({ videos, name = null, fullscreen = false, tintBackground = t
     style: style,
     fade: fade,
     onDismiss: _onDismiss,
-    dismissOnEnd: dismissOnEnd,
-    muted: muted,
-    skippable: skippable
+    dismissOnEnd: dismissOnEnd
   };
   // Show the popup
   if (opts.takeOverScreen === false && Array.isArray(videos)) {

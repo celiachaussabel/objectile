@@ -76,17 +76,17 @@ button.button {
 }
 
 .button-next {
-  top: 950px;
-  left: 1750px;
-  width: 100px;
+  top: 910px;
+  left: 1775px;
+  width: 140px;
   height: 100px;
   background-image: url('../all/button-next.png');
 }
 
 .button-back {
-  top: 950px;
-  left: 50px;
-  width: 100px;
+  top: 910px;
+  left:20px;
+  width: 140px;
   height: 100px;
   background-image: url('../all/button-back.png');
 }
@@ -101,6 +101,13 @@ button.button {
 @font-face {
   font-family: "SourceCodeVariable-Italic";
   src: url("../fonts/SourceCodeVariable-Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JetBrainsMono-Medium";
+  src: url("../fonts/JetBrainsMono-Medium.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

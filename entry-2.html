@@ -2,77 +2,70 @@
 <html lang="en">
 
 <head>
-  <title>Entry 2</title>
-  <link rel="stylesheet" href="1-src/main.css">
-  <link rel="stylesheet" href="1-src/popup.css">
-  <script src="1-src/popup.js"></script>
-  <script src="1-src/fade.js"></script>
-  <script src="1-src/layout.js"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    .container {
-      background: url('entry-2/bgd-entry-2.png') 100% 100%;
-    }
-  </style>
+    <title>Entry Clickable</title>
+    <link rel="stylesheet" href="1-src/main.css">
+    <link rel="stylesheet" href="1-src/popup.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="1-src/fade.js"></script>
+    <script src="1-src/popup.js"></script>
+    <script src="1-src/layout.js"></script>
+    <script src="1-src/video.js"></script>
+    <style>
+        .container {
+            background: url('entry/entry-bgd-no-marble.png') 100% 100%;
+        }
+    </style>
 </head>
 
 <body style="margin:0;overflow:hidden">
 
-  <div class="container">
+    <div class="container">
 
-    <img src="entry-2/button-0.png" class="button" style="top: 600px; left: 200px; width: 80px; height: auto;" onclick="popup.showText({
-  texts: ['A PIECE OF DRYWALL FROM A MINE IN MICHIGAN'],
-  name: 'popup-drywall',
-  tintBackground: false,
-  takeOverScreen: true,
-  style: 'top: 600px; left: 300px; width: 80px; height: auto;'
-})">
+        <img src="entry/foam.png" class="button" style="top: 730px; left: 00px; width: 440px; height: auto;"
+            onclick="popup.showText({texts: texts[0], name: 'foam', tintBackground: false, takeOverScreen: false, style: 'top: 800px; left: 00px; width: 440px; height: auto;'})">
+        <img src="entry/plain-marble.png" class="button" style="top: 350px; left: 1100px; width: 250px; height: auto;"
+            onclick="popup.showText({texts: texts[1], name: 'plain-marble', tintBackground: true, takeOverScreen: false, style: 'top: 510px; left: 1076px; width: 250px; height: auto;'})">
+        <img src="entry/button-id-chart.png" class="button" style="top: 930px; left: 1400px; width: 230px; height: auto;"
+            onclick="popup.showImage({images: 'entry/ID-paper.png', name: 'id-chart', fullscreen: false, tintBackground: true, takeOverScreen: true})">
 
-    <img src="entry-2/button-1.png" class="button" style="top: 500px; left: 830px; width: 300px; height: auto;" onclick="popup.showText({
-  texts: ['A CERAMIC TILE FROM A CLAY PIT, THAT WAS THEN FIRED AT HIGH TEMP IN A FACTORY'],
-  name: 'popup-tile',
-  tintBackground: false,
-  takeOverScreen: true,
-  style: 'top: 500px; left: 830px; width: 500px; height: auto;'
-})">
+        <button class="button button-back" onclick="fadeToScene('entry-1.html')"></button>
+        <button class="button button-next" onclick="fadeToScene('entry-3.html')"></button>
 
-    <img src="entry-2/button-2.png" class="button" style="top: 730px; left: 1430px; width: 300px; height: auto;"
-      onclick="popup.showText({
-  texts: ['A PIECE OF MARBLE, SHIPPED BY BOAT FROM ITALY'],
-  name: 'popup-marble',
-  tintBackground: false,
-  takeOverScreen: true,
-  style: 'top: 730px; left: 1430px; width: 300px; height: auto;'
-})">
+    <img src="entry/button-marble.png" class="button" style="top: 745px; left: 800px; width: 460px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'entry/animation-marble.mp4',
+           name: 'marble',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+           onDismiss:null,
+         })">
 
-    <button class="button button-back" onclick="fadeToScene('entry-1.html')"></button>
-    <button class="button button-next" onclick="fadeToScene('entry-3.html')"></button>
-
-  </div>
+    </div>
+    <script>
 
 
+        // Modal text arrays
+        const texts = [
+["THIS WAS FLIMSY MATERIAL, IT'S CRUMBS NOW.", "IT DIDN'T HOLD ITS SHAPE, AND THEREFORE CAN'T TELL YOU ITS STORY.", "NO NARRATIVE TO CARRY HERE.", "NOT AN OBJECTILE."],
+["THIS WAS DISMANTLED SO CLEANLY.", "IT ALMOST LOOKS NEW.", "YOU CAN REUSE IT.", "BUT YOU WON'T FIND A STORY HERE.", "NOT AN OBJECTILE."],
 
-  <script>
+        ];
 
+        // Background music
+        var music = new Audio('0-music/nuitbleue.mp3');
+        music.loop = true;
+        function startMusic() {
+            music.play();
+            document.removeEventListener('click', startMusic);
+        }
+        document.addEventListener('click', startMusic);
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const popupImage = document.getElementById('popupImage');
-      popupImage.addEventListener('click', () => {
-
-      });
-    });
-
-    // Background music
-    var music = new Audio('computer-data.mp3');
-    music.loop = true;
-    function startMusic() {
-      music.play();
-      document.removeEventListener('click', startMusic);
-    }
-    document.addEventListener('click', startMusic);
-
-  </script>
+    </script>
 </body>
 
 </html>

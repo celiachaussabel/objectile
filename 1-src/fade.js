@@ -23,7 +23,7 @@ function handleFadeTransitionEnd(overlay, url, e) {
   }
 }
 
-function fadeToScene(url, duration = 3000) {
+function fadeToScene(url, duration = 1500) {
   let overlay = document.getElementById('fadeOverlay');
   if (!overlay) {
     overlay = document.createElement('div');

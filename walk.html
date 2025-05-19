@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Walk Interactive</title>
+  <link rel="stylesheet" href="1-src/main.css">
+  <link rel="stylesheet" href="1-src/popup.css">
+  <script src="1-src/popup.js"></script>
+  <script src="1-src/fade.js"></script>
+
+  <script src="1-src/layout.js"></script>
+  <script src="1-src/video.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .container {
+      background: url('walk/bgd-walk.png') 100% 100%;
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <script>
+    showIntroVideo('walk/animation-walk.mp4', 0, true, true, true, true);
+  </script>
+
+  <div class="container">
+
+    <img src="walk/button-paver.png" class="button" style="top: 274px; left: 415px; width: 120px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'walk/animation-paver.mp4',
+           name: 'paver',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+
+    <img src="walk/button-pipe.png" class="button" style="top: 720px; left: 1110px; width: 250px; height: auto;"
+      onclick="popup.showVideo({
+           videos: 'walk/animation-pipe2.mp4',
+           name: 'pipe',
+           fullscreen: true,
+           tintBackground: false,
+           takeOverScreen: true,
+           fade: true,
+           dismissOnEnd: true,
+           mute: false,
+         })">
+
+    <button class="button button-back" onclick="fadeToScene('fantasizer.html')"></button>
+    <button class="button button-next" onclick="fadeToScene('livingroom.html')"></button>
+  </div>
+
+  <script>
+
+        // Background music
+        var music = new Audio('0-music/193193sleep.mp3');
+        music.loop = true;
+        function startMusic() {
+            music.play();
+            window.removeEventListener('click', startMusic);
+        }
+       window.addEventListener('click', startMusic);
+
+
+  </script>
+
+</body>
+
+</html>
